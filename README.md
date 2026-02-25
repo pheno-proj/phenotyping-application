@@ -2,7 +2,7 @@
 
 This document summarizes the current development status and technical implementation for the committee presentation.
 
-## 🎯 Current Progress (Modules 1-3 Completed)
+##  Current Progress (Modules 1-3 Completed)
 The system's foundation, authentication, and the core Intelligence Engine are fully implemented and verified.
 
 ### 1. Web Infrastructure & Security
@@ -20,12 +20,12 @@ The system's foundation, authentication, and the core Intelligence Engine are fu
 - **Schema**: Implemented 9 core relational tables (Admin, Parent, Counselor, Teacher, Alert, Academic, Behavior, Result, Children).
 - **PDO Integration**: All database interactions use PHP Data Objects (PDO) for enhanced security against SQL Injection.
 
-## �️ Technical Stack
+## Technical Stack
 - **Languages**: PHP 8.x, Python 3.9
 - **Frameworks**: Bootstrap 5, Scikit-learn, Pandas
 - **Database**: MySQL 
 
-## 📊 Performance Metrics
+##  Performance Metrics
 - **Model Accuracy**: 86.4%
 - **Prediction Confidence**: Scalable consensus-based scoring (current high test: 87.1%)
 - **System Latency**: <500ms for AI processing.
