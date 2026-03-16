@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+
+# Models & Data (Optional: ignore if you want users to train their own)
+# ai_engine/models/*.pkl
+
+# OS & Temp
+.DS_Store
+Thumbs.db
+phenotyping_input_*.json
+
+# XAMPP/Config
+# config.php (If you have sensitive data)

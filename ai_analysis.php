@@ -7,12 +7,26 @@ if (!isset($_SESSION['user_id']) || !in_array($_SESSION['role'], ['admin', 'teac
     exit();
 }
 
+require_once 'db_connect.php';
 require_once 'includes/ai_connector.php';
 
-$prediction = null;
-$error = null;
+$prediction   = null;
+$error        = null;
+$saved_to_db  = false;
+$user_role    = $_SESSION['role'];
+$user_id      = $_SESSION['user_id'];
+
+// For teacher: fetch their students for the dropdown
+$my_students = [];
+if ($user_role === 'teacher') {
+    $stmt = $pdo->prepare("SELECT child_id, full_name FROM children WHERE teacher_id = ? ORDER BY full_name");
+    $stmt->execute([$user_id]);
+    $my_students = $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $selected_child_id = isset($_POST['child_id']) && $_POST['child_id'] !== '' ? intval($_POST['child_id']) : null;
+
     $data = [
         'gender'                    => $_POST['gender']                    ?? 'M',
         'NationalITy'               => $_POST['NationalITy']               ?? 'KW',
@@ -38,6 +52,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = $result['error'];
     } else {
         $prediction = $result;
+
+        // ── Save to DB if a student was selected ──────────────────────────
+        if ($selected_child_id && $user_role === 'teacher') {
+            $details = json_encode($data);
+            $save = $pdo->prepare(
+                "INSERT INTO result (child_id, prediction, confidence_score, details) VALUES (?, ?, ?, ?)"
+            );
+            if ($save->execute([
+                $selected_child_id,
+                $prediction['prediction'],
+                $prediction['confidence'],
+                $details
+            ])) {
+                $saved_to_db = true;
+
+                // Auto-generate alert if Low performance
+                if ($prediction['prediction'] === 'L') {
+                    $alert = $pdo->prepare(
+                        "INSERT INTO alert (child_id, message, alert_type, status) VALUES (?, ?, 'Behavioral', 'New')"
+                    );
+                    $alert->execute([
+                        $selected_child_id,
+                        'Warning: AI Analysis indicates Low performance demanding immediate attention.'
+                    ]);
+                }
+            }
+        }
     }
 }
 
@@ -237,9 +278,17 @@ include 'includes/header.php';
               <div class="progress conf-progress">
                 <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: <?= $prediction['confidence'] ?>%"></div>
               </div>
-              <p class="small text-muted">A higher score indicates more behavioral patterns matching the dataset.</p>
             </div>
           </div>
+
+          <?php if ($saved_to_db): ?>
+            <div class="alert alert-success mt-3 d-inline-block px-4">
+              <i class="bi bi-database-check"></i> Analysis result saved to the database successfully!
+              <?php if ($prediction['prediction'] === 'L'): ?>
+                <br><i class="bi bi-bell-fill text-danger"></i> <strong>Automatic alert generated for the counselor!</strong>
+              <?php endif; ?>
+            </div>
+          <?php endif; ?>
           
           <a href="ai_analysis.php" class="btn btn-outline-primary btn-sm rounded-pill px-4 mt-3">Reset Analysis</a>
         </div>
@@ -254,7 +303,21 @@ include 'includes/header.php';
 
           <div class="card-body p-5">
             <form method="POST" id="aiForm">
-              
+
+              <?php if ($user_role === 'teacher' && count($my_students) > 0): ?>
+              <!-- Student Selector for DB Saving -->
+              <div class="mb-4 p-4 rounded-3" style="background:#f0fdf4; border: 2px dashed #22c55e;">
+                <div class="form-section-title" style="color:#16a34a;"><i class="bi bi-database-add me-2"></i>Link Analysis to Student (Save Result)</div>
+                <select name="child_id" class="form-select">
+                  <option value="">— Analyze without saving (optional) —</option>
+                  <?php foreach ($my_students as $s): ?>
+                    <option value="<?= $s['child_id'] ?>"><?= htmlspecialchars($s['full_name']) ?></option>
+                  <?php endforeach; ?>
+                </select>
+                <small class="text-muted mt-1 d-block">If you select a student, the analysis result will be automatically saved and linked to them.</small>
+              </div>
+              <?php endif; ?>
+
               <!-- Section 1: Demographic & Academic Profile -->
               <div class="form-section-title">
                 <i class="bi bi-person-badge me-2"></i>Student Profiling
@@ -271,8 +334,6 @@ include 'includes/header.php';
                   <label class="form-label">Educational Stage</label>
                   <select name="StageID" class="form-select">
                     <option value="lowerlevel">Primary / Lower Level</option>
-                    <option value="MiddleSchool" selected>Middle School</option>
-                    <option value="HighSchool">High School</option>
                   </select>
                 </div>
                 <div class="col-md-4">
@@ -384,7 +445,6 @@ include 'includes/header.php';
                 <button type="submit" class="btn btn-analyze">
                   Run Behavior Analysis <i class="bi bi-arrow-right ms-2"></i>
                 </button>
-                <p class="small text-muted mt-3">The engine will process 16 parameters based on the xAPI-Edu-Data standards.</p>
               </div>
 
             </form>

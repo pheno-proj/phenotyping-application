@@ -1,3 +1,12 @@
-pandas>=1.5.0
-scikit-learn>=1.2.0
+# --- Core AI & Data Processing ---
+pandas>=1.5.3
+numpy>=1.23.5
+scikit-learn>=1.2.2
+joblib>=1.2.0
+
+# --- Documentation & Reporting ---
 python-docx>=0.8.11
+
+# --- Future Visualization (Optional but Recommended) ---
+matplotlib>=3.7.1
+seaborn>=0.12.2

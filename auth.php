@@ -84,13 +84,38 @@ if ($action === 'login') {
 // REGISTER
 elseif ($action === 'register') {
     $user_type = $_POST['user_type'] ?? '';
-    $full_name = $_POST['full_name'] ?? '';
-    $email = $_POST['email'] ?? '';
+    $full_name = trim($_POST['full_name'] ?? '');
+    $email = trim($_POST['email'] ?? '');
     $password = $_POST['password'] ?? '';
-    $phone = $_POST['phone'] ?? '';
+    $phone = trim($_POST['phone'] ?? '');
 
-    if (empty($user_type) || empty($full_name) || empty($email) || empty($password)) {
-        $_SESSION['error'] = 'All required fields must be filled';
+    // Validation
+    if (empty($user_type) || empty($full_name) || empty($email) || empty($password) || empty($phone)) {
+        $_SESSION['error'] = 'All fields are required';
+        header('Location: login_register.php');
+        exit;
+    }
+
+    if (strlen($full_name) < 3) {
+        $_SESSION['error'] = 'Name must be at least 3 characters';
+        header('Location: login_register.php');
+        exit;
+    }
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $_SESSION['error'] = 'Invalid email format';
+        header('Location: login_register.php');
+        exit;
+    }
+
+    if (!preg_match('/^(05)[0-9]{8}$/', $phone)) {
+        $_SESSION['error'] = 'Invalid Saudi phone number! (Must start with 05 and be 10 digits)';
+        header('Location: login_register.php');
+        exit;
+    }
+
+    if (strlen($password) < 8) {
+        $_SESSION['error'] = 'Password must be at least 8 characters';
         header('Location: login_register.php');
         exit;
     }

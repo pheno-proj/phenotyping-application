@@ -199,7 +199,7 @@ include 'includes/header.php';
                     <div class="row g-3">
                       <div class="col-md-12">
                         <label class="form-label small fw-bold">Full Name</label>
-                        <input type="text" class="form-control" name="full_name" placeholder="Your Name" required>
+                        <input type="text" class="form-control" name="full_name" placeholder="At least 3 characters" minlength="3" required>
                       </div>
                       <div class="col-md-6">
                         <label class="form-label small fw-bold">Email Address</label>
@@ -207,11 +207,11 @@ include 'includes/header.php';
                       </div>
                       <div class="col-md-6">
                         <label class="form-label small fw-bold">Phone Number</label>
-                        <input type="tel" class="form-control" name="phone" placeholder="+123..." required>
+                        <input type="tel" class="form-control" name="phone" placeholder="05XXXXXXXX" pattern="05[0-9]{8}" title="Saudi phone number must start with 05 and be 10 digits" required>
                       </div>
                       <div class="col-md-12">
                         <label class="form-label small fw-bold">Password</label>
-                        <input type="password" class="form-control" name="password" placeholder="Min. 8 characters" required>
+                        <input type="password" class="form-control" name="password" placeholder="Min. 8 characters" minlength="8" required>
                       </div>
 
                       <div class="col-md-12 teacher-field d-none">

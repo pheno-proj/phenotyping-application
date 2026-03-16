@@ -3,6 +3,8 @@ import pickle
 import sys
 import json
 import os
+import warnings
+# warnings.filterwarnings("ignore", category=UserWarning) # Suppress version warnings from polluting JSON output
 
 # Define paths
 MODEL_DIR     = 'models'

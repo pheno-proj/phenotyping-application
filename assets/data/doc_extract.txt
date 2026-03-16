@@ -1,0 +1,505 @@
+KING KHALID UNIVERSITY COLLEGE OF COMPUTER SCIENCE
+Digital Phenotyping of Children's Behavior at the Beginning of the School Year
+BY
+Raneem Abdullah Awaji – 444806669
+Ghaida Khalid Asiri - 444806233
+Lamia Ali – 444808314
+Supervised by:
+Dr. Bushra aldosari
+This Project Documentation is submitted in partial fulfillment of the requirement for the Degree of B.Sc. in
+Computer Science
+1447 (2024-2025)
+Committee Report
+As the examining committee, we have thoroughly reviewed this graduation project report, assessed its contents, and determined that it meets the requirements of a suitable project document for a B.Sc. degree in Computer Science.
+Acknowledgement
+First and foremost, we extend our deepest appreciation to our supervisor, Dr. Bushra aldosari, whose expertise and mentorship were fundamental to the success of this project.
+Our thanks also go to the faculty members of the  computer science Department for their constructive feedback during project milestones.
+To our families and friends – your support was our constant motivation. Thank you.
+Abstract
+At the start of the school year, children may experience a decline in their mental and social well-being, which can affect their behavior and lead to a drop in academic performance. Consequently, a child's mental state can significantly affect their behavior. While monitoring teacher and parent observations or conducting mental health assessments is advisable, new technologies are needed to better understand their mental state early on and accurately categorize their behavior. The proposed digital phenotyping application offers more accurate solutions for understanding mental states and identifying children's behavior at the beginning of the school year. This application will analyze children's digital behavior using data collected from the X platform and employ machine-learning techniques to categorize their behavior. This application will allow teachers to monitor each child's behavior and obtain data related to their academic performance and behavior. Furthermore, parents can access simple weekly reports on their children's behavior, and the system will send early alerts and recommendations to child counselors if patterns of abnormal behavior emerge. The proposed application is very useful for maintaining children's mental health and identifying potential problems at the beginning of the school year.
+Table of Contents
+Table of Figures
+Figure ‎1.1: Iterative waterfall methodology [3].	3
+Figure ‎1.2: Gant chart.	4
+Figure ‎2.1: Conceptual overview of the system [7].	6
+Figure ‎2.2: StudentSense study design [8].	7
+Figure ‎2.3: Brightline system design [9].	8
+Figure ‎3.1: Use case diagram.	13
+Figure ‎3.2: Class diagram.	15
+Figure ‎3.3: Activity diagram.	16
+Figure ‎3.4: Sequence diagram for teacher.	18
+Figure ‎3.5: Sequence diagram for counselor.	19
+Figure ‎3.6: Sequence diagram for admin.	21
+Figure ‎3.7: Sequence diagram for parent.	22
+Figure ‎3.8: Collaboration diagram (teacher).	23
+Figure ‎3.9: Collaboration diagram (counselor).	24
+Figure ‎3.10: Collaboration diagram (parent).	25
+Figure ‎3.11: Collaboration diagram (admin).	26
+Figure ‎3.12: State diagram (teacher).	27
+Figure ‎3.13: State diagram (counselor).	28
+Figure ‎3.14: State diagram (parent).	29
+Figure ‎3.15: State diagram (admin).	30
+Figure ‎3.16: Context flow diagram.	31
+Figure ‎3.17: DFD level 0.	31
+Figure ‎3.18: DFD level 1.	32
+Figure ‎3.19: DFD level 2.	33
+Figure ‎3.20: ER diagram.	35
+Figure ‎3.21: Main interface.	39
+Figure ‎3.22: Login interface.	39
+Figure ‎3.23: Register interface (teacher).	40
+Figure ‎3.24: Register interface (parent).	40
+Figure ‎3.25: Register interface (counselor).	41
+Figure ‎3.26: Home interface (teacher).	41
+Figure ‎3.27: Home interface (parent).	42
+Figure ‎3.28: Track academic performance interface.	42
+Figure ‎3.29: Result interface of academic performance.	43
+Figure ‎3.30: Track student behavior interface.	43
+Figure ‎3.31: Result interface of student behavior.	44
+Figure ‎3.32: Report interface.	44
+Table of Tables
+Table ‎2.1: Comparison with other systems.	9
+Table ‎3.1: Admin table.	36
+Table ‎3.2: Parent table.	36
+Table ‎3.3: Counselor table.	36
+Table ‎3.4: Teacher table.	37
+Table ‎3.5: Alert table.	37
+Table ‎3.6: Academic performance table.	37
+Table ‎3.7: Behavior table.	37
+Table ‎3.8: Result table.	38
+Table ‎3.9: Children table.	38
+List of Abbreviations
+CHAPTER 1: INTRODUCTION
+INTRODUCTION
+The psychological state of children at the start of school is a major concern, as it affects their behavior, interaction, and academic focus. The beginning of the school year is a crucial period for children, fraught with psychological and behavioral anxieties. Starting school means transitioning to a new and more interactive environment, which can lead to abnormal behaviors or a decline in academic performance [1]. Monitoring children's behavior is essential for tracking their psychological well-being and working to enhance their focus and academic performance.
+PROBLEM STATEMENT
+At the beginning of school, children can suffer from common psychological health problems that cause changes in behavior. Beyond academic rigor, moving to a new environment can make children more vulnerable to psychological health problems, which can negatively impact their focus and academic performance. Traditional methods, such as teacher observations and parent assessments, are often relied upon to understand a child's psychological state [2]. However, these methods lack accuracy in classifying a child's behavior, especially since teachers may not be able to provide a comprehensive view of each child, and parent reports may be biased, making it difficult to identify psychological health problems and accurately assess a child's behavior, leading to lower academic performance of the child.
+PROPOSED SYSTEM
+It was proposed a digital phenotyping application for mobile phones to analyze children's behavior at the beginning of the school year, providing insights into their early psychological and social development. The proposed system uses data collected from "Madrasti" platform to analyze behavioral patterns. The application uses machine-learning algorithms to detect psychological state indicators from the collected data and then classify the child’s behavior and its impact on academic performance. The application will enable teachers to monitor the child’s behavior and its impact on his concentration and academic performance, and parents can obtain reports on their children’s behavior. Moreover, the app can send early warnings to child psychologists about children who show abnormal behavioral patterns such as poor academic performance, to provide them with help and support.
+AIM OF THE PROJECT
+The project aims to study children’s behavior at the beginning of the school year, relying on the use of effective techniques to extract digital profiling data in order to maintain the child’s academic performance and detect abnormal behavior patterns early.
+OBJECTIVES OF THE PROJECT
+The project objectives are as follows:
+To identify and apply effective techniques for extracting digital phenotyping data within traditional school settings.
+To explore how the "Madrasti" platform can be utilized to develop and integrate a digital phenotyping system.
+To evaluate the effectiveness of digital phenotyping in understanding and analyzing students behavior and academic performance.
+SCOPE OF THE PROJECT
+The scope of our project includes:
+Our application is able to work only within KSA.
+Targeting children at the beginning of the school year.
+It supports only English language and android operating systems.
+SIGNIFICANCE OF THE PRJECT
+The system will help both teachers and parents in Saudi Arabia understand a child's psychological state, monitor their behavior patterns, and assess their impact on both concentration and academic performance. It will facilitate communication between psychological counselors and parents to monitor a child's psychological well-being and provide support and assistance. The system will offer a precise analysis of psychological indicators and detect child behavior using machine-learning techniques, thus helping teachers track a behavior child's progress.
+SOFTWARE DEVELOPMENT METHODOLOGIES
+Project development methodologies are a model consisting of several sequential steps that help to execute the project on time and to a high standard. In our project, we are using the iterative waterfall methodology, as illustrated in the Figure 1.1 below. This methodology consists of six sequential phases, where the team executes each phase completely before moving on to the next. A key feature of this methodology is its feedback mechanism, which allows the user to revert from the current phase to the previous one to make adjustments and correct errors, thus adding flexibility to the project [3].
+Figure ‎1.1: Iterative waterfall methodology [3].
+PROJECT ORGANIZATION
+This report is organized into three chapters:
+Introduction, the introduction, problem statement, proposed system, aim, objectives, scope, software development methodologies, and significance of this work are identified.
+Literature Review, history, literature review, feasibility study, and requirements analysis are presented.
+System Design and Analysis, ml models and diagrams are designed, database design, along with all of the prototype.
+The project is organized using a Gantt chart. This chart outlines all the tasks to be completed during the project and the time required to complete each task. The Figure 1.2 below shows the Gantt chart for our project.
+Figure ‎1.2: Gant chart.
+SUMMARY
+It was launched the Digital Phenotyping of Children's Behavior at the Beginning of the School Year system. This system will help teachers and parents understand children's behavior by analyzing data collected from "Madrasti" platform. We analyzed the system's challenges and proposed a solution for managing it by developing a mobile application that can be used by parents, teachers, and counselors to facilitate behavior tracking and understanding the child's psychological state.
+CHAPTER 2: BACKGROUND AND LITERATURE REVIEW
+INTRODUCTION
+This chapter aims to provide background on the concept of digital phenotypes and their importance. It then examines three applications of digital phenotypes for analyzing human behavior and compares them to the proposed system. Finally, the system requirements are listed, divided into functional and non-functional requirements.
+BACKGROUND
+Digital phenotype is the latest digital technology that emerged in 2015 [4]. This concept refers to utilizing data on various observable activities and characteristics of individuals collected from digital devices in order to improve diagnosis and predict behavior. This concept is used in healthcare applications by leveraging digital brain biomarkers, where digital patterns of a patient's clinical data are analyzed to describe their condition and thus predict their behavior and response. It is also used in the field of drug-assisted symptom detection, where clinical experiences closely related to a patient's function are analyzed to determine their response to medication [5]. Data collection methods rely on two main factors: active data collection and passive data collection. In active data collection, individuals participate in the data collection process, for example, by completing questionnaires, self-reports, and mood assessments. Passive data collection, on the other hand, does not rely on individual participation but rather uses digital platforms or devices to collect data, such as sensors, GPS, call logs, app usage, text messages, screen time, and wearable devices [6].
+LITERATURE REVIEW
+A search was conducted on the Internet to find what similar systems exist that deals with the digital phenotyping and made a comparison of the functionalities provided by the systems with the functionality intended to be included in the proposed system.
+Adolescent Mental Health System
+This system aims to use digital profiling to study the mental health of school students and its impact on behavior. The study relied on collecting active and passive data from the Mindcraft app and questionnaires, then machine learning techniques were used to predict mental health risks, as illustrated in the Figure 2.1 below. The study included 103 students from three London schools who completed questionnaires, self-reports, and used the Mindcraft application for 14 days. The results showed the ability to predict student behavior with high accuracy due to the integration of active and passive data, which revealed high levels of insomnia, suicidal thoughts, and eating disorders [7].
+Figure ‎2.1: Conceptual overview of the system [7].
+Advantages:
+Using passive and active data.
+Focusing on the mental health of school students.
+Disadvantages:
+The data collection process was short, not exceeding two weeks; therefore, it does not reflect long-term behavior.
+Lacking focus on beginning of school year period
+Lacking of digital services to understand children’ behavior.
+No integrated system combining between digital phenotyping accuracy, school transition focus and real-time monitoring capability.
+StudentSense System
+This system aims to use digital profiling to study the behavior of university students before and after exam periods and its impact on their mental health. The study relied on collecting passive data from mobile phones, and then used Monte Carlo subsampling correlation to analyze student behavior and the relationship between behavioral variables and psychological state. The study included 151 students from the University of Melbourne in Australia who used mobile phones for 17 weeks, as shown in the Figure 2.2 below. The results showed that exam periods were a cause of depressive, anxious, stressed, and lonely behaviors, with loneliness being associated with screen use and depressive behavior being associated with the university and home environment [8].
+Figure ‎2.2: StudentSense study design [8].
+Advantages:
+Focusing on understanding the psychological state of university students.
+Linking psychological state to behavioral changes.
+Disadvantages:
+Machine learning techniques were not used in analyzing the collected data.
+Lacking focus on beginning of school year period
+Lacking of digital services to understand children’ behavior.
+No integrated system combining between Digital phenotyping accuracy, school transition focus and real-time monitoring capability.
+Brightline System
+This system aims to use digital profiling to study the mental health of university students and its impact on behavior. The study relied on collecting active and passive data from smartphone and wearable device sensors and questionnaires. Machine learning techniques were then used to predict which students were at risk of developing mental health problems, as illustrated in Figure 2.3 below. The study included 500 students from a public university in Singapore. They completed self-report questionnaires at the beginning of the study and used device sensors for six months. The results showed a high degree of predictive accuracy in student behavior, revealing high levels of depression, anxiety, stress, loneliness, and irritability [9].
+Figure ‎2.3: Brightline system design [9].
+Advantages:
+Using passive and active data.
+Focusing on the mental health of university students.
+Disadvantages:
+The data collection process was short, not exceeding two weeks; therefore, it does not reflect long-term behavior.
+Lacking focus on beginning of school year period
+Lacking of digital services to understand children’ behavior.
+No integrated system combining between digital phenotyping accuracy, school transition focus and real-time monitoring capability.
+COMPARISON WITH SIMILAR SYSTEMS
+The results showed a research gap in the lack of focus on the start of the school year and the absence of digital services for understanding children's behavior. Consequently, our project offers an integrated system that combines: accurate digital phenotyping, a focus on school transition, and real-time monitoring capabilities. The table below compares our system with similar systems.
+Table ‎2.1: Comparison with other systems.
+FEASIBILITY ANALYSIS
+The feasibility study aims to identify the hardware and software requirements, and this study helps in the successful implementation of the project.
+SOFTWARE REQUIREMENTS
+The proposed system is based on the software requirements as follow.
+Bootstrap is the most popular HTML, CSS and JavaScript framework for developing a website interfaces.
+MySQL is a relational database management system (RDBMS) developed by Oracle to handle, store, modify and delete data and store data in an organized way
+XAMPP is  cross-platform web servers to create and test the programs on a local webserver.
+Python programming language is a simple and interpreted programming language, which is relied upon for programming artificial intelligence algorithms.
+HARDWARE REQUIREMENTS
+A laptop equipped with robust hardware components to ensure efficient development and testing processes.
+REQUIREMENTS ANALYSIS
+Requirements analysis aims to identify the functional and non-functional requirements of the system.
+Functional Requirements
+The functional requirements:
+The system must collect behavioral and activity data from the X platform.
+The system must apply a decision Tree supervised learning algorithm to detect behavioral patterns and identify possible signs of struggle.
+The system must provide a real-time monitoring dashboard for teachers and school counselors to view results and trends.
+The system should send alerts to teachers or counselors when significant behavioral deviations or risk indicators are detected.
+Non-Functional Requirements
+The non-functional requirements:
+Maintainability: The system should allow easy updates to algorithms, data sources, or reporting templates.
+Usability: The dashboard must be easy to navigate for teachers and administrators, even with limited technical experience
+Security and privacy: All data must be securely stored and transmitted, Maintain confidentiality and privacy of children data.
+Ethical Compliance: The system must comply with educational ethics and data protection, and ensuring that results are used only to support students’ well-being
+CHAPTER 3: SYSTEM DESIGN AND ANALYSIS
+INTRODUCTION
+This chapter aims to design different types of UML diagrams that are used to analyze the processes and functions of the system and design its components and how they interact with each other.
+INTERACTION ANALYSIS
+The following sections illustrate the system analysis using UML diagrams. These diagrams describe the system from different perspectives to provide a comprehensive and concise understanding of it.
+UML Models and Diagrams
+Four types of Unified Modeling Language (UML) diagrams are designed, which are use case diagram, class diagram, activity diagram, and sequence diagram.
+Use Case Diagram
+The use case diagram aims to describe the user's interaction with the system, where users are described as actors and processes are described as use cases. The Figure 3.1 below illustrates the use case diagram for our system. Use cases:
+Register: Enables a new user (teacher, parent, and counselor) to create an account in the system by providing the required details.
+Login: Allows the user (teacher, parent, admin, and counselor) to access the system by entering their credentials.
+Track student behavior: Allows the teacher to monitor behavioral patterns for student.
+Track academic performance: Allows the teacher to monitor academic performance for student.
+Receive alerts: Allows the teacher and counselor to receive alerts when significant behavioral deviations or risk indicators are detected.
+View result report: Allows the parent to access simple weekly reports on their children's behavior.
+Manage accounts: Allows the admin to manage the accounts of users registered in the system.
+Add account: Admin adds new account with details such as full name.
+Edit account: Admin edits account details such as full name.
+Delete account: Allows the admin to delete an existing account from the system.
+Manage result trends: Allows the admin to manage the results and trends in the system.
+View result: Allows the admin to the results and trends for each student,
+Delete result: Allows the admin to delete an existing result from the system.
+Figure ‎3.1: Use case diagram.
+Class Diagram
+The Figure 3.2 below illustrates the class diagram for our system. In this diagram, there are several classes and relationships between them, most notably the administrator class, which has a management relationship with the teacher, counselor, and parent classes. The teacher class is associated with the behavior class and the academic performance class in track relationship.
+Classes:
+Admin: Attributes include admin ID, user name, and password.
+Parent: Attributes include parent ID, full name, email, password, phone, and address.
+Counselor: Attributes include counselor ID, full name, email, password, and phone.
+Teacher: Attributes include teacher ID, full name, email, specialization, password, and phone.
+Alert: Attributes include alert ID, and alert.
+Academic performance: Attributes include per ID, and academic performance.
+Behavior: Attributes include behavior ID, and behavior.
+Result: Attributes include result ID, and description.
+Children: Attributes include children ID, full name, and date of birth
+Relationships:
+The admin manages the accounts of teachers, counselors, and parents.
+The admin manages the results and trends.
+The teacher and counselor receive alerts.
+The teacher tracks behavioral patterns for student.
+The teacher tracks academic performance for student.
+The parents has one or more children.
+The results sends to parents.
+The children has results.
+The alerts make for behavioral and academic performance.
+The behavioral and academic performance adds to results.
+Figure ‎3.2: Class diagram.
+Activity Diagram
+The activity diagram aims to describe the activities that each user can access and how data is exchanged between these activities. The activity diagram for our system is shown in Figure 3.3 below.
+System connects to X platform.
+System collects behavioral and activity data.
+Decision tree algorithm analysis data.
+Detecting behavioral patterns.
+Identifying possible signs of struggle.
+Viewing results and trends.
+Testing of risk indicators.
+Notifying teachers or counselors
+Figure ‎3.3: Activity diagram.
+Sequence Diagram
+Sequence diagrams belong to the behavioral diagrams that describe how messages are exchanged between system objects. Each actor is represented in the sequence diagram. The sequence diagrams for our system are described in the figures below.
+Sequence diagram for teacher:
+Teacher opens system.
+Teacher registers in the system by enter the details such as full name, specialization, phone, email, and password.
+System validates account data.
+System saves account data in database.
+Teacher logs in the system by enter the details such as email, and password.
+System validates account data from database.
+Database returns success login message.
+System displays home page.
+Teacher tracks student’s behavior/academic performance.
+Teacher enters student name.
+System requests behavioral and activity data from database.
+Database collects data from platform.
+Platform returns data to database.
+Database displays data in system.
+System is analyzing data.
+System detects behavioral patterns.
+System displays the results.
+System detects significant behavioral deviations.
+If significant behavioral deviations is valid, the system sends alerts to teacher.
+Figure ‎3.4: Sequence diagram for teacher.
+Sequence diagram for counselor:
+Counselor opens system.
+Counselor registers in the system by enter the details such as full name, phone, email, and password.
+System validates account data.
+System saves account data in database.
+Counselor logs in the system by enter the details such as email, and password.
+System validates account data from database.
+Database returns success login message.
+System displays home page.
+System requests behavioral and activity data from database.
+Database collects data from platform.
+Platform returns data to database.
+Database displays data in system.
+System is analyzing data.
+System detects behavioral patterns.
+System detects significant behavioral deviations.
+If significant behavioral deviations is valid, the system sends alerts to counselor.
+Figure ‎3.5: Sequence diagram for counselor.
+Sequence diagram for admin:
+Admin opens system.
+Admin logs in the system by enter the details such as user name, and password.
+System validates account data from database.
+Database returns success login message.
+System displays home page.
+Admin manages accounts.
+Admin clicks on "add account" button.
+System requests add form from database.
+Database returns add form to system.
+System display add form.
+Admin adds user information.
+Admin clicks on "add" button.
+System saves account data in database.
+Admin clicks on "Accounts" button.
+System requests accounts from database.
+Database returns accounts to system.
+System display accounts.
+Admin selects an account.
+Admin clicks on "delete" button.
+System updates data in database.
+Admin manages results.
+Admin clicks on "Result" button.
+System requests result from database.
+Database returns result to system.
+System display results.
+Admin selects result.
+Admin clicks on "delete" button.
+System updates data in database.
+Figure ‎3.6: Sequence diagram for admin.
+Sequence diagram for parent:
+Parent opens system.
+Parent registers in the system by enter the details such as full name, address, phone, email, and password.
+System validates account data.
+System saves account data in database.
+Parent logs in the system by enter the details such as email, and password.
+System validates account data from database.
+Database returns success login message.
+System displays home page.
+Parent requests the report.
+System displays the report.
+Figure ‎3.7: Sequence diagram for parent.
+COLLABORATION DIAGRAM
+The collaboration diagram shows the action in the sequence organized by the object which performed the action.
+Collaboration diagram (teacher):
+1: Register (user).
+2: Insert data in database.
+3: Inserted by database.
+4: Open login page
+5: Login (user).
+6: Add data in database.
+7: Added by database.
+8: Open teacher page.
+9: Track students behavior/academic performance.
+10: Enter student name.
+11: Returned by database.
+12: View result.
+13: Send alerts by system.
+14: View alerts.
+Figure ‎3.8: Collaboration diagram (teacher).
+Collaboration diagram (counselor):
+1: Register (user).
+2: Insert data in database.
+3: Inserted by database.
+4: Open login page
+5: Login (user).
+6: Add data in database.
+7: Added by database.
+8: Open counselor page.
+9: Send alerts by system.
+10: View alerts.
+Figure ‎3.9: Collaboration diagram (counselor).
+Collaboration diagram (parent):
+1: Register (user).
+2: Insert data in database.
+3: Inserted by database.
+4: Open login page
+5: Login (user).
+6: Add data in database.
+7: Added by database.
+8: Open parent  page.
+9: Request report.
+10: Return report.
+11: Returned by database.
+12: View report.
+Figure ‎3.10: Collaboration diagram (parent).
+Collaboration diagram (admin):
+1: Login (user).
+2: Add data in database.
+3: Added by database.
+4: Open admin page
+5: Add, edit, delete account (user).
+6: Insert, update, delete in database.
+7: Inserted, updated, deleted by database.
+8: Display success message.
+9: View, delete result (user).
+10: Display, delete result in database.
+11: Displayed, deleted result by database.
+12: Display success message.
+Figure ‎3.11: Collaboration diagram (admin).
+STATE DIAGRAM
+The state diagram shows the user status in the sequence organized by the object, which performed the state.
+Teacher states:
+Registered: The initial status when a user account is created and added to the system
+Logged in: The status that indicates that the user is logged in the system.
+Tracked: The status that indicates that the user is tracked  students behavior/academic performance when the user enters student name
+Viewed alerts: The status that indicates that the user is viewed alerts when significant behavioral deviations is valid.
+Transitions:
+From start to registered: When the user is registered.
+From registered to logged in: When the user is logged in.
+From logged in to tracked: When the user is entered student name.
+From tracked to viewed: If significant behavioral deviations is valid.
+Figure ‎3.12: State diagram (teacher).
+Counselor states:
+Registered: The initial status when a user account is created and added to the system
+Logged in: The status that indicates that the user is logged in the system.
+Viewed alerts: The status that indicates that the user is viewed alerts when significant behavioral deviations is valid.
+Transitions:
+From start to registered: When the user is registered.
+From registered to logged in: When the user is logged in.
+From logged in to viewed: If significant behavioral deviations is valid.
+Figure ‎3.13: State diagram (counselor).
+Parent states:
+Registered: The initial status when a user account is created and added to the system
+Logged in: The status that indicates that the user is logged in the system.
+Viewed report: The status that indicates that the user is viewed report for student.
+Transitions:
+From start to registered: When the user is registered.
+From registered to logged in: When the user is logged in.
+From logged in to viewed: When the user is requested report.
+Figure ‎3.14: State diagram (parent).
+Admin states:
+Logged in: The status that indicates that the user is logged in the system.
+Managed accounts: The status that indicates that the user is managed user account by adding, editing, or deleting account.
+Managed result: The status that indicates that the user is managed result by viewing, or deleting result.
+Transitions:
+From registered to logged in: When the user is logged in.
+From logged in to managed account: When the user is added, edited, or deleted account.
+From logged in to managed result: When the user is viewed, or deleted result.
+Figure ‎3.15: State diagram (admin).
+DESIGN CONCEPT
+System design is the process of defining the internal components of a system and their relationships with each other to assist the development team in the programming process. It aims to design databases and data flow according to the predefined user requirements.
+CONTEXT FLOW DIAGRAM
+This diagram describes the system boundaries, the inputs and outputs to and from the system. Figure 3.16 below illustrates our system context diagram.
+Teacher tracks student behavior.
+Teacher tracks academic performance.
+Teacher and counselor receive alerts.
+Parent views result report.
+Admin manages the accounts.
+Admin manages the results and trends.
+Figure ‎3.16: Context flow diagram.
+DATA FLOW DIAGRAM
+This diagram describes how processes and data are organized. The diagram consists of three levels, as shown in the figures below.
+Level 0: Defining the relationship between the system and the database.
+Figure ‎3.17: DFD level 0.
+Level 1: The user logs in by entering their email and password, and then the data is verified by connecting to the database. If the data is correct, the user proceeds to the system.
+Figure ‎3.18: DFD level 1.
+Level 2:
+Teacher, parent, and counselor registers in the system.
+Teacher, parent, admin, and counselor logs in the system.
+Teacher tracks student behavior.
+Teacher tracks academic performance.
+Teacher and counselor receive alerts.
+Parent views result report.
+Admin manages the accounts.
+Admin manages the results and trends.
+Figure ‎3.19: DFD level 2.
+DATABASE DESIGN
+This section describes the database design by describing the entity-relationship diagram and listing the database tables.
+ERD Diagram
+An entity-relationship (ER) diagram describes the database as shown in Figure 3.20 below.
+Entities:
+Admin: Attributes include admin ID, user name, and password.
+Parent: Attributes include parent ID, full name, email, password, phone, and address.
+Counselor: Attributes include counselor ID, full name, email, password, and phone.
+Teacher: Attributes include teacher ID, full name, email, specialization, password, and phone.
+Alert: Attributes include alert ID, and alert.
+Academic performance: Attributes include per ID, and academic performance.
+Behavior: Attributes include behavior ID, and behavior.
+Result: Attributes include result ID, and description.
+Children: Attributes include children ID, full name, and date of birth
+Relationships:
+The admin manages the accounts of teachers, counselors, and parents.
+The admin manages the results and trends.
+The teacher and counselor receive alerts.
+The teacher tracks behavioral patterns for student.
+The teacher tracks academic performance for student.
+The parents has one or more children.
+The results sends to parents.
+The children has results.
+The alerts make for behavioral and academic performance.
+The behavioral and academic performance adds to results.
+Figure ‎3.20: ER diagram.
+Database Tables
+Our system has nine database tables, as shown in the tables below.
+Table ‎3.1: Admin table.
+Table ‎3.2: Parent table.
+Table ‎3.3: Counselor table.
+Table ‎3.4: Teacher table.
+Table ‎3.5: Alert table.
+Table ‎3.6: Academic performance table.
+Table ‎3.7: Behavior table.
+Table ‎3.8: Result table.
+Table ‎3.9: Children table.
+SAMPLE INTERFACE DESIGN
+A prototype design provides a visual representation of how the interfaces will look when implemented. The figures below illustrate sample user interfaces.
+Figure ‎3.21: Main interface.
+Figure ‎3.22: Login interface.
+Figure ‎3.23: Register interface (teacher).
+Figure ‎3.24: Register interface (parent).
+Figure ‎3.25: Register interface (counselor).
+Figure ‎3.26: Home interface (teacher).
+Figure ‎3.27: Home interface (parent).
+Figure ‎3.28: Track academic performance interface.
+Figure ‎3.29: Result interface of academic performance.
+Figure ‎3.30: Track student behavior interface.
+Figure ‎3.31: Result interface of student behavior.
+Figure ‎3.32: Report interface.
+UNDERLYING TECHNIQUES
+We use many techniques are:
+Decision tree supervised algorithm to detect behavioral patterns and identify possible signs of struggle. Decision trees are used for classification processes, as they perform the classification process by arranging the attributes into groups, each tree consists of a group of nodes and each node is a group of characteristics (class) and each node has several branches explaining the possible values of that node.
+MySQl database management system that is used to store and retrieve data.
+Python programming language is a simple and interpreted programming language, which is relied upon for programming artificial intelligence algorithms.
+Data preprocessing includes removing duplicate data, filling in missing data, and deleting unnecessary data.
+SUMMARY
+This chapter discusses how to implement processes and procedures within the system by designing a use case diagram to describe the interaction between actors and the system, designing a class diagram to describe the structure of the system, a sequence diagram to describe the exchange of messages between system objects. In addition to designing an activity diagram to describe how to move from one activity to another, designing a context diagram to describe the external actors of the system, designing a DFD diagram to describe the flow of processes and data, and finally an ER diagram to describe the structure of the database.
+References
+S. Ito, C. S. Ang, O. P. Kampman, K. Rokde, T. Buddhika, C. Heaukulani, C., ... and A. H. Y. Ho, “Harnessing digital phenotyping to advance university student mental health (Brightline) in Singapore: study protocol for a prospective observational study,” BMJ open, vol.15, no.9, pp. e103652, 2025.‏
+F. Boman, M. Stafström, N. Lundin, M. Moghadassi, C. J. Törnhage, and P. O. Östergren, “Comparing parent and teacher assessments of mental health in elementary school children,” Scandinavian journal of public health, vol. 44, no.2, pp. 168-176, 2016.‏
+C. S. Chowdary, and S. nandigam. (2019). Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International. researchgate.net [online] from https://www.researchgate.net/figure/Classical-waterfall-model-Iterative-waterfall-Model-The-model-is-an-advancement-of-the_fig1_364088764. [accessed 2025-11-4].
+A. Oudin, R. Maatoug, A. Bourla, F. Ferreri, O. Bonnot, B. Millet, and V. Adrien, “Digital phenotyping: data-driven psychiatry to redefine mental health,” Journal of Medical Internet Research, vol. 25, pp. e44502, 2023.‏
+J. C. Schulte-Strathaus, C. Rauschenberg, H. Baumeister, and U. Reininghaus, “Digital phenotyping and mobile sensing: New developments in psychoinformatics,” 2022.‏
+T. R. Insel, “Digital phenotyping: technology for a new science of behavior,” Jama, vol. 318, no.13, pp. 1215-1216, 2017.
+B. Kadirvelu, T. B. Bel, A. Freccero, M. Di Simplicio, D. Nicholls, and A. A. Faisal, “Digital Phenotyping for Adolescent Mental Health: A Feasibility Study Employing Machine Learning to Predict Mental Health Risk From Active and Passive Smartphone Data,” arXiv preprint arXiv:2501.08851, 2025.‏
+T. Zhang, M. Russell, V. Kostakos, S. D’Alfonso, “StudentSense: Primary Outcomes of a Smartphone Digital Phenotyping Study of University Students in Australia,” Computers in Human Behavior Reports, pp. 100769, 2025.
+S. Ito, C. S. Ang, O. P. Kampman, K. Rokde, T. Buddhika, C. Heaukulani,... and A. H. Y. Ho, “Harnessing Digital Phenotyping to Advance University Student Mental Health (Brightline): Study Protocol for a Prospective Observational Study,” medRxiv, 2025.‏

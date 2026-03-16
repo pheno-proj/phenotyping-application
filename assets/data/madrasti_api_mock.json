@@ -1,0 +1,154 @@
+{
+  "api_info": {
+    "source": "Madrasti Platform ",
+    "version": "1.0",
+    "school_name": "Al-Amal Primary School",
+    "school_id": "SA_SCH_10452",
+    "generated_at": "2026-03-15T20:00:00+03:00",
+    "academic_year": "2025-2026",
+    "semester": "Second Semester"
+  },
+  "students": [
+    {
+      "student_id": "STU_001",
+      "full_name": "Mohammed Ali Al-Zahrani",
+      "gender": "M",
+      "nationality": "KSA",
+      "grade_level": "G-04",
+      "section": "A",
+      "parent_name": "Ali Al-Zahrani",
+      "parent_phone": "0512345677",
+      "behavioral_data": {
+        "raised_hands": 75,
+        "visited_resources": 112,
+        "announcements_viewed": 95,
+        "discussion_groups": 42,
+        "student_absence_days": "Under-7"
+      },
+      "survey_data": {
+        "parent_answering_survey": "Yes",
+        "parent_school_satisfaction": "Good"
+      },
+      "ai_input_ready": true
+    },
+    {
+      "student_id": "STU_002",
+      "full_name": "Sarah Ahmed Al-Qahtani",
+      "gender": "F",
+      "nationality": "KSA",
+      "grade_level": "G-04",
+      "section": "A",
+      "parent_name": "Ahmed Al-Qahtani",
+      "parent_phone": "0556789012",
+      "behavioral_data": {
+        "raised_hands": 20,
+        "visited_resources": 30,
+        "announcements_viewed": 18,
+        "discussion_groups": 5,
+        "student_absence_days": "Above-7"
+      },
+      "survey_data": {
+        "parent_answering_survey": "No",
+        "parent_school_satisfaction": "Bad"
+      },
+      "ai_input_ready": true
+    },
+    {
+      "student_id": "STU_003",
+      "full_name": "Abdulrahman Khalid Al-Mutairi",
+      "gender": "M",
+      "nationality": "KSA",
+      "grade_level": "G-04",
+      "section": "B",
+      "parent_name": "Khalid Al-Mutairi",
+      "parent_phone": "0598765432",
+      "behavioral_data": {
+        "raised_hands": 55,
+        "visited_resources": 78,
+        "announcements_viewed": 60,
+        "discussion_groups": 20,
+        "student_absence_days": "Under-7"
+      },
+      "survey_data": {
+        "parent_answering_survey": "Yes",
+        "parent_school_satisfaction": "Good"
+      },
+      "ai_input_ready": true
+    },
+    {
+      "student_id": "STU_004",
+      "full_name": "Noura Fahad Al-Dossari",
+      "gender": "F",
+      "nationality": "KSA",
+      "grade_level": "G-05",
+      "section": "A",
+      "parent_name": "Fahad Al-Dossari",
+      "parent_phone": "0534512367",
+      "behavioral_data": {
+        "raised_hands": 90,
+        "visited_resources": 140,
+        "announcements_viewed": 125,
+        "discussion_groups": 55,
+        "student_absence_days": "Under-7"
+      },
+      "survey_data": {
+        "parent_answering_survey": "Yes",
+        "parent_school_satisfaction": "Good"
+      },
+      "ai_input_ready": true
+    },
+    {
+      "student_id": "STU_005",
+      "full_name": "Yousef Majid Al-Shammari",
+      "gender": "M",
+      "nationality": "KSA",
+      "grade_level": "G-05",
+      "section": "B",
+      "parent_name": "Majid Al-Shammari",
+      "parent_phone": "0578904321",
+      "behavioral_data": {
+        "raised_hands": 10,
+        "visited_resources": 15,
+        "announcements_viewed": 8,
+        "discussion_groups": 2,
+        "student_absence_days": "Above-7"
+      },
+      "survey_data": {
+        "parent_answering_survey": "No",
+        "parent_school_satisfaction": "Bad"
+      },
+      "ai_input_ready": true
+    },
+    {
+      "student_id": "STU_006",
+      "full_name": "Reem Sultan Al-Otaibi",
+      "gender": "F",
+      "nationality": "KSA",
+      "grade_level": "G-06",
+      "section": "A",
+      "parent_name": "Sultan Al-Otaibi",
+      "parent_phone": "0501234567",
+      "behavioral_data": {
+        "raised_hands": 48,
+        "visited_resources": 65,
+        "announcements_viewed": 50,
+        "discussion_groups": 15,
+        "student_absence_days": "Under-7"
+      },
+      "survey_data": {
+        "parent_answering_survey": "Yes",
+        "parent_school_satisfaction": "Good"
+      },
+      "ai_input_ready": true
+    }
+  ],
+  "field_descriptions": {
+    "raised_hands": "Number of times the student raised hand in virtual classes",
+    "visited_resources": "Number of times learning resources were opened or downloaded",
+    "announcements_viewed": "Number of school announcements viewed by the student",
+    "discussion_groups": "Number of student participations in discussion groups",
+    "student_absence_days": "Whether the student exceeded 7 absence days (Above-7) or not (Under-7)",
+    "parent_answering_survey": "Did the parent answer the school survey?",
+    "parent_school_satisfaction": "Parent's evaluation of the school"
+  }
+}

@@ -74,10 +74,10 @@ class AIConnector {
      */
     public static function getArabicLabel(string $code): string {
         return match($code) {
-            'H' => 'متفوق 🌟',
-            'M' => 'متوسط 📘',
-            'L' => 'يحتاج متابعة ⚠️',
-            default => 'غير محدد'
+            'H' => 'High Achiever 🌟',
+            'M' => 'Average 📘',
+            'L' => 'Needs Attention ⚠️',
+            default => 'Unknown'
         };
     }
 
